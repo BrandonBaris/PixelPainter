@@ -1,0 +1,23 @@
+{
+  "name": "PixelPainter",
+  "version": "1.0.0",
+  "description": "PixelPainter ============",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BrandonBaris/PixelPainter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrandonBaris/PixelPainter/issues"
+  },
+  "homepage": "https://github.com/BrandonBaris/PixelPainter",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-connect": "^2.2.0"
+  }
+}
