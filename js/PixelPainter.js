@@ -1,18 +1,19 @@
 $(function(){
 
+//pixelpainter grid
 function PixelPainter( width, height ){
   this.width = width;
   this.height = height;
-  this.render( width, height);
+  // this.render( width, height);
 }
 
-PixelPainter.prototype.render = function( width, height ) {
+PixelPainter.prototype.render = function() {
   var mainGrid = $("<div>", { "class" : "big_grid"});
   var gridCol = $("<div>", { "class" : "col" });
-  for ( var i = 0; i < height; i++ ){
+  for ( var i = 0; i < this.height; i++ ){
 
-    for ( var j = 0; j < width; j++ ){
-      var gridRow = $("<div>", { "class" : "colorbox"});
+    for ( var j = 0; j < this.width; j++ ){
+      var gridRow = $("<div>", { "class" : "gridbox"});
       gridCol.append ( gridRow );
     }
     mainGrid.append ( gridCol );
@@ -20,9 +21,6 @@ PixelPainter.prototype.render = function( width, height ) {
   $( "#container" ).append( mainGrid );
 
 };
-
-
-
 
 
 // color generator
@@ -33,7 +31,7 @@ function Colors() {
 };
 
 Colors.prototype.generate = function(){
-  for ( var i = 0; i <= 360; i +=4 ){
+  for ( var i = 0; i <= 360; i +=5 ){
     this.palette.push(i);
   }
   // console.log('palette',this.palette);
@@ -58,5 +56,5 @@ swatch.generate();
 console.log('palette',swatch.palette);
 swatch.renderColor();
 var pixels = new PixelPainter( 30,30 );
-// pixels.render(30,30);
+pixels.render();
 }); //closure
