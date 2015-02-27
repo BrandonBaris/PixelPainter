@@ -1,4 +1,6 @@
-function PixelPainter( width, height){
+$(function(){
+
+function PixelPainter( width, height ) {
     
   this.width = width;
   this.height = height;
@@ -6,24 +8,39 @@ function PixelPainter( width, height){
   this.artboard = $('#artboard');
   this.cellSize = 20;
 
-  for( var i = 0; i < this.width; i++){
-    for(var j = 0; j < this.height; j++){
-      $('#container').append("<div>");
-    }
-  }
-
-  PixelPainter.prototype.render = function (){
-    
-  // else if (arrayDimensions.length > 1){
-  //   // assign currentDimension to next axis (Y or Z)
-  //   var currentDimension = arrayDimensions.slice(1);
-  //   arrayDimensions.forEach( function ( arrayDimensionY ) {
-  //     for (var i = 0; i < arrayDimensionY[0]; i++) {
-  //       // generate but pass it in as numbers not array.. maybe use apply
-  //       result.push(this.generate(currentDimension));
-  //     }
-  //   });
-  // }
-  };
-  
 }
+
+
+// color generator
+function Colors() {
+
+  this.palette = [];
+
+}
+
+Colors.prototype.generate = function(){
+  for ( var i = 0; i <= 360; i +=10 ){
+    this.palette.push(i);
+  }
+  // console.log('palette',this.palette);
+  return this.palette;
+};
+
+Colors.prototype.renderColor = function(){
+  // var colorbox = [];
+  var colorContainer = $("<div>", { "class" : "color_container" });
+  for ( var i = 0; i < this.palette.length; i++ ){
+        var colorGrid = $("<div>", { "class" : "colorbox", html : "" });
+        colorGrid.css( "background-color", "hsl(" + this.palette[i] + ",100%, 50%)");
+        // $("body").css( "background", "hsl(" + this.palette[i] + ",100%,50%);");
+        colorContainer.append( colorGrid );
+        // var parapara = $( "<p>", { html : "asdaf"});
+        $( "#container" ).append( colorContainer );
+      }
+      return true;
+};
+var swatch = new Colors();
+swatch.generate();
+console.log('palette',swatch.palette);
+swatch.renderColor();
+}); //closure
