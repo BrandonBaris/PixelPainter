@@ -1,41 +1,25 @@
 $(function(){
 
+function PixelPainter( width, height ){
+  this.width = width;
+  this.height = height;
+  this.render( width, height);
+}
 
+PixelPainter.prototype.render = function( width, height ) {
+  var mainGrid = $("<div>", { "class" : "big_grid"});
+  var gridCol = $("<div>", { "class" : "col" });
+  for ( var i = 0; i < height; i++ ){
 
+    for ( var j = 0; j < width; j++ ){
+      var gridRow = $("<div>", { "class" : "colorbox"});
+      gridCol.append ( gridRow );
+    }
+    mainGrid.append ( gridCol );
+  }
+  $( "#container" ).append( mainGrid );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
 
 
 
@@ -49,7 +33,7 @@ function Colors() {
 };
 
 Colors.prototype.generate = function(){
-  for ( var i = 0; i <= 360; i +=10 ){
+  for ( var i = 0; i <= 360; i +=4 ){
     this.palette.push(i);
   }
   // console.log('palette',this.palette);
@@ -73,4 +57,6 @@ var swatch = new Colors();
 swatch.generate();
 console.log('palette',swatch.palette);
 swatch.renderColor();
+var pixels = new PixelPainter( 30,30 );
+// pixels.render(30,30);
 }); //closure

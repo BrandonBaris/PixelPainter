@@ -6,6 +6,7 @@ body {
 }
 .colorbox {
   display: inline-block;
+  background-color: #777;
   width: 20px;
   height: 20px;
   padding: 3px;
@@ -14,6 +15,20 @@ body {
 
 .color_container {
   display: block;
-  width: 200px;
+  clear: left;
+  width: 120px;
 
+}
+
+.big_grid {
+  float: right;
+  display: block;
+  width: 600px;
+  height: 800px;
+}
+
+.col {
+  display: block;
+/*  width: 800px;
+  height: 800px;*/
 }
