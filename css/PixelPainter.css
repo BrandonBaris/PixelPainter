@@ -1,0 +1,11 @@
+body {
+  /*background: hsl(123,100%,50%);*/
+}
+.colorbox {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: hsl(321,100%,50%);
+  padding: 3px;
+  border: thin solid #000;
+}
