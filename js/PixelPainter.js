@@ -4,7 +4,7 @@
 function PixelPainter( width, height ){
   this.width = width;
   this.height = height;
-  this.palette = [];
+  this.hue = [];
 }
 
 PixelPainter.prototype.render = function() {
@@ -21,23 +21,28 @@ PixelPainter.prototype.render = function() {
   $( "#container" ).append( mainGrid );
 };
 
-// color generator
+// color generator using HSL
 PixelPainter.prototype.generate = function(){
   for ( var i = 0; i < 360; i +=5 ){
-    this.palette.push(i);
+    this.hue.push(i);
   }
-  return this.palette;
+  return this.hue;
 };
 
 PixelPainter.prototype.renderColor = function(){
 
   var colorContainer = $("<div>", { "class" : "color_container" });
-  for ( var i = 0; i < this.palette.length; i++ ){
+  for ( var i = 0; i < this.hue.length; i++ ){
     var colorGrid = $("<div>", { "class" : "colorbox", "id" : "color_select" + [i] });
-    colorGrid.css( "background-color", "hsl(" + this.palette[i] + ",100%, 50%)");
+    colorGrid.css( "background-color", "hsl(" + this.hue[i] + ",100%, 50%)");
     colorContainer.append( colorGrid );
     $( "#container" ).append( colorContainer );
   }
+    // quickfix black - to be redone
+    var colorGrid = $("<div>", { "class" : "colorbox" });
+    colorGrid.css( "background-color", "hsl(0,0%,0%)");
+    colorContainer.append( colorGrid );
+
   var erase = $( "<button>", { "id" : "eraser", html : "ERASER" });
   var clearbutton = $( "<button>", { "id" : "clear_all", html : "CLEAR GRID" });
   $( ".color_container" ).append( erase, clearbutton );
