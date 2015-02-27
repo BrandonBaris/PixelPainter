@@ -50,6 +50,7 @@ $( "body" ).mouseup( function(){
 
 });
 
+// BROKEN. NEEDS FIXING.
 if(is_mouse_down === true){
   $( ".gridbox" ).hover( function () {
     if( currentColor!== undefined){
