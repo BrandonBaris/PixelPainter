@@ -4,6 +4,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 body {
   font-family: 'Comic Sans MS', sans-serif;
   font-size: 16px;
+  background: salmon;
   /*background: hsl(123,100%,50%);*/
 }
 
@@ -13,10 +14,10 @@ h1 {
 }
 .colorbox {
   display: inline-block;
-  background-color: #FFF;
+  /*background-color: #FFF;*/
   width: 20px;
   height: 20px;
-  padding: 3px;
+  /*padding: 3px;*/
   border: thin solid #000;
   border-radius: 4px;
   margin: 2px;
@@ -25,10 +26,11 @@ h1 {
 .gridbox {
   display: inline-block;
   background-color: #FFF;
-  width: 20px;
-  height: 20px;
-  padding: 3px;
-  border: thin solid #000;
+  width: 18px;
+  height: 18px;
+  /*padding: 3px;*/
+  border: thin solid #AAA;
+  margin: 0;
 }
 
 .color_container {
@@ -46,8 +48,8 @@ h1 {
   margin-right: 20px;
 }
 
-.col {
+.grid_column {
   display: block;
-/*  width: 800px;
-  height: 800px;*/
+  /*width: 200px;*/
+  /*height: 800px;*/
 }
