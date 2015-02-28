@@ -1,6 +1,7 @@
 $(function(){
 var currentColor; //color to draw with
 var pixels = new PixelPainter( 30,30 );
+var is_mouse_down = true;
 
 pixels.generate();
 console.log('hue',pixels.hue);
@@ -37,8 +38,6 @@ $.fn.disableSelection = function() {
 
 $( ".gridbox" ).disableSelection();
 
-var is_mouse_down;
-
 $( "body" ).mousedown( function(){
   is_mouse_down = true;
   console.log(is_mouse_down);
@@ -46,8 +45,7 @@ $( "body" ).mousedown( function(){
 
 $( "body" ).mouseup( function(){
   is_mouse_down = false;
-    console.log(is_mouse_down);
-
+  console.log(is_mouse_down);
 });
 
 // BROKEN. NEEDS FIXING.
