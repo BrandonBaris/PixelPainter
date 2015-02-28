@@ -39,9 +39,9 @@ PixelPainter.prototype.renderColor = function(){
     $( "#container" ).append( colorContainer );
   }
     // quickfix black - to be redone
-    var colorGrid = $("<div>", { "class" : "colorbox" });
-    colorGrid.css( "background-color", "hsl(0,0%,0%)");
-    colorContainer.append( colorGrid );
+    var colorGridblack = $("<div>", { "class" : "colorbox" });
+    colorGridblack.css( "background-color", "hsl(0,0%,0%)");
+    colorContainer.append( colorGridblack );
 
   var erase = $( "<button>", { "id" : "eraser", html : "ERASER" });
   var clearbutton = $( "<button>", { "id" : "clear_all", html : "CLEAR GRID" });
@@ -49,4 +49,13 @@ PixelPainter.prototype.renderColor = function(){
   return true;
 };
 
+
+PixelPainter.prototype.paint = function( gridBox, currentColor ) {
+
+  if( currentColor !== undefined){
+      $(gridBox).css( "background-color", currentColor );
+    } else {
+      console.log("Palette color not loaded to brush");
+    }
+};
 // }); //closure
