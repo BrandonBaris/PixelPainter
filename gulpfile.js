@@ -9,7 +9,7 @@ gulp.task('connect', function() {
 });
 
 gulp.task('livereload', function () {
-  gulp.src('./**/*')
+  return gulp.src('./**/*')
     .pipe(connect.reload());
 });
 
