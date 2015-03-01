@@ -33,13 +33,13 @@ PixelPainter.prototype.saveGrid = function(something) {
 
 // color generator using HSL
 PixelPainter.prototype.generate = function(){
-  for ( var i = 0; i < 360; i +=5 ){
+  for ( var i = 0; i < 360; i +=10 ){
     this.hue.push(i);
   }
-   for ( var j = 20; j < 100; j +=10 ){
+   for ( var j = 10; j < 100; j +=10 ){
     this.saturation.push(j);
   }
-   for ( var k = 20; k < 100; k +=10 ){
+   for ( var k = 50; k < 90; k +=10 ){
     this.light.push(k);
   }
   console.log(this.saturation);
@@ -49,14 +49,16 @@ PixelPainter.prototype.generate = function(){
 PixelPainter.prototype.renderColor = function(){
 
   var colorContainer = $("<div>", { "class" : "color_container" });
-    for ( var i = 0; i < this.hue.length; i++ ){
+  for ( var i = 0; i < this.hue.length; i++ ){
+    for ( var k = 0; k < this.light.length; k++){
       for ( var j = 0; j < this.saturation.length; j++){
 
       var colorGrid = $("<div>", { "class" : "colorbox" });
-      colorGrid.css( "background-color", "hsl(" + this.hue[i] + "," + this.saturation[j] + "%,"+ this.light[j] + "%)");
+      colorGrid.css( "background-color", "hsl(" + this.hue[i] + "," + this.saturation[j] + "%,"+ this.light[k] + "%)");
       colorContainer.append( colorGrid );
       $( "#container" ).append( colorContainer );
     }
+  }
 }
     // quickfix black and white
     var colorGridblack = $("<div>", { "class" : "colorbox" });
