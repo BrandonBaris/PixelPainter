@@ -33,10 +33,10 @@ PixelPainter.prototype.saveGrid = function(something) {
 
 // color generator using HSL
 PixelPainter.prototype.generate = function(){
-  for ( var i = 0; i < 360; i +=10 ){
+  for ( var i = 0; i < 360; i +=20 ){
     this.hue.push(i);
   }
-   for ( var j = 10; j < 100; j +=10 ){
+   for ( var j = 20; j < 100; j +=10 ){
     this.saturation.push(j);
   }
    for ( var k = 50; k < 90; k +=10 ){
