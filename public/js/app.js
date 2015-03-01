@@ -10,6 +10,7 @@ $(function(){
   pixels.renderColor();
   //renders grid
   pixels.render();
+  console.log(pixels.saturation);
 
   $( ".colorbox" ).click( function(){
     currentColor = $( this ).css( "background-color" );
@@ -61,4 +62,10 @@ $(function(){
     }
   });
 
+// ------------------------------------------------------- FILE SERVER
+  $("#save_button").click(function(){
+    pixels.saveGrid();
+  });
+
 }); //closure
+

@@ -14,6 +14,7 @@ PixelPainter.prototype.render = function() {
     var gridCol = $("<div>", { "class" : "grid_column" });
     for ( var j = 0; j < this.width; j++ ){
       var gridRow = $("<div>", { "class" : "gridbox", "id": i+"x"+j });
+
       gridCol.append ( gridRow );
     }
     mainGrid.append ( gridCol );
@@ -21,50 +22,51 @@ PixelPainter.prototype.render = function() {
   $( "#container" ).append( mainGrid );
 };
 
-// colorspace generator 
+PixelPainter.prototype.saveGrid = function(something) {
+  var gridState = [];
+  $(".gridbox").each(function(index,element){
+    gridState.push($(element).css("background-color"));
+  });
+  console.log(gridState);
+};
+
+// color generator using HSL
 PixelPainter.prototype.generate = function(){
-  //hue
-  for ( var i = 0; i < 360; i +=5 ){
+  for ( var i = 0; i < 360; i +=20 ){
     this.hue.push(i);
   }
-  //saturation
-  for ( var i = 80; i < 100; i += 5 ){
-    this.saturation.push(i);
+   for ( var j = 20; j < 100; j +=10 ){
+    this.saturation.push(j);
   }
-  //lightness
-  for ( var i = 60; i > 00; i -= 30 ){
-    this.light.push(i);
+   for ( var k = 50; k < 90; k +=10 ){
+    this.light.push(k);
   }
+  console.log(this.saturation);
   return this.hue,this.saturation,this.light;
 };
 
 PixelPainter.prototype.renderColor = function(){
 
   var colorContainer = $("<div>", { "class" : "color_container" });
-  for ( var hue_iterate = 0; hue_iterate < this.hue.length; hue_iterate++ ){
-    var colorGrid = $("<div>", { "class" : "colorbox", "id" : "color_select" + [hue_iterate] });
-    colorGrid.css( "background-color", "hsl(" + this.hue[hue_iterate] + ",100%, 50%)");
-    colorContainer.append( colorGrid );
-    $( "#container" ).append( colorContainer );
 
-    for( var sat_iterate = 0; sat_iterate < this.saturation.length; sat_iterate++){
-      var colorGridS = $("<div>", { "class" : "colorbox", "id" : "color_select" + [hue_iterate] + [sat_iterate] });
-      colorGridS.css( "background-color", "hsl(" + this.hue[hue_iterate] + ","+ this.saturation[sat_iterate]+"%, 50%)");
-      colorContainer.append( colorGridS );
-      $( "#container" ).append( colorContainer ); 
+  for ( var i = 0; i < this.hue.length; i++ ){
+    for ( var k = 0; k < this.light.length; k++){
+      for ( var j = 0; j < this.saturation.length; j++){
+
+      var colorGrid = $("<div>", { "class" : "colorbox" });
+      colorGrid.css( "background-color", "hsl(" + this.hue[i] + "," + this.saturation[j] + "%,"+ this.light[k] + "%)");
+      colorContainer.append( colorGrid );
+      $( "#container" ).append( colorContainer );
     }
-
-      for( var lig_iterate = 0; lig_iterate < this.light.length; lig_iterate++){
-        var colorGridE = $("<div>", { "class" : "colorbox", "id" : "color_select" + [hue_iterate] + [lig_iterate] });
-        colorGridE.css( "background-color", "hsl(" + this.hue[hue_iterate] + ",100%, "+this.light[lig_iterate]+"%)");
-        colorContainer.append( colorGridE );
-        $( "#container" ).append( colorContainer );  
-      }
   }
-    // quickfix black - to be redone
+}
+    // quickfix black and white
     var colorGridblack = $("<div>", { "class" : "colorbox" });
     colorGridblack.css( "background-color", "hsl(0,0%,0%)");
-    colorContainer.append( colorGridblack );
+    var colorGridWhite = $("<div>", { "class" : "colorbox" });
+    colorGridWhite.css( "background-color", "hsl(0,100%,100%)");
+    var saveButton = $("<button>", { "id" : "save_button", html : "Save" });
+    colorContainer.append( colorGridWhite, colorGridblack, saveButton );
 
   var erase = $( "<button>", { "id" : "eraser", html : "ERASER" });
   var clearbutton = $( "<button>", { "id" : "clear_all", html : "CLEAR GRID" });
@@ -81,4 +83,4 @@ PixelPainter.prototype.paint = function( gridBox, currentColor ) {
       console.log("Palette color not loaded to brush");
     }
 };
-
+// }); //closure

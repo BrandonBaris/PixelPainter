@@ -16,11 +16,10 @@ gulp.task('watch-files', function (){
   gulp.watch('./js/*.js', ['js']);
 });
 
-gulp.task('public-server', function (){
+gulp.task('connect', function() {
   connect.server({
     root: './',
-    port: 8080,
-    livereload: true
+    livereload : true
   });
 });
 
@@ -29,4 +28,8 @@ gulp.task('livereload', function() {
     .pipe(connect.reload());
 });
 
-gulp.task('default', ['public-server', 'watch-files', 'livereload']);
+gulp.task('watch', function() {
+  gulp.watch('./**/*',['livereload']);
+});
+
+gulp.task('default', ['connect','watch', 'livereload']);
