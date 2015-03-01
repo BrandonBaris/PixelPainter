@@ -1,5 +1,3 @@
-// $(function(){
-
 //pixelpainter grid
 function PixelPainter( width, height ){
   this.width = width;
@@ -15,7 +13,7 @@ PixelPainter.prototype.render = function() {
   for ( var i = 0; i < this.height; i++ ){
     var gridCol = $("<div>", { "class" : "grid_column" });
     for ( var j = 0; j < this.width; j++ ){
-      var gridRow = $("<div>", { "class" : "gridbox", "id" : "box-" + i });
+      var gridRow = $("<div>", { "class" : "gridbox", "id": i+"x"+j });
       gridCol.append ( gridRow );
     }
     mainGrid.append ( gridCol );
@@ -43,6 +41,7 @@ PixelPainter.prototype.generate = function(){
     this.light.push(k);
   }
   console.log(this.saturation);
+
   return this.hue,this.saturation,this.light;
 };
 
@@ -58,6 +57,7 @@ PixelPainter.prototype.renderColor = function(){
       colorContainer.append( colorGrid );
       $( "#container" ).append( colorContainer );
     }
+
   }
 }
     // quickfix black and white
@@ -83,6 +83,5 @@ PixelPainter.prototype.paint = function( gridBox, currentColor ) {
       console.log("Palette color not loaded to brush");
     }
 };
-
 
 // }); //closure
