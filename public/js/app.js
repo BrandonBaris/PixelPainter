@@ -1,11 +1,14 @@
 $(function(){
-  var currentColor; //color to draw with
+
+//----------------------------------------------- APP LOGIC
+  var currentColor = "rgb(0,0,0)"; //color to draw with
   var pixels = new PixelPainter( 30,30 );
 
   pixels.generate();
-  // console.log('hue',pixels.hue);
 
+  //generates swatches
   pixels.renderColor();
+  //renders grid
   pixels.render();
 
   $( ".colorbox" ).click( function(){

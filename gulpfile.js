@@ -1,12 +1,6 @@
 var gulp = require('gulp');
 var connect = require('gulp-connect');
 
-gulp.task('watch-files', function (){
-  gulp.watch('./*.html', ['html']);
-  gulp.watch('./js/*.js', ['js']);
-
-});
-
 gulp.task('html', function (){
   return gulp.src('./*.html')
     .pipe(connect.reload());
@@ -17,6 +11,10 @@ gulp.task('js', function (){
     .pipe(connect.reload());
 });
 
+gulp.task('watch-files', function (){
+  gulp.watch('./*.html', ['html']);
+  gulp.watch('./js/*.js', ['js']);
+});
 
 gulp.task('public-server', function (){
   connect.server({
@@ -27,7 +25,7 @@ gulp.task('public-server', function (){
 });
 
 gulp.task('livereload', function() {
-  gulp.src('./public/**/*')
+  return gulp.src('./**/*')
     .pipe(connect.reload());
 });
 
