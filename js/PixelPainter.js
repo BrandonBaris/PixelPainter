@@ -15,12 +15,20 @@ PixelPainter.prototype.render = function() {
   for ( var i = 0; i < this.height; i++ ){
     var gridCol = $("<div>", { "class" : "grid_column" });
     for ( var j = 0; j < this.width; j++ ){
-      var gridRow = $("<div>", { "class" : "gridbox", "id" : "box-" + i + "-"+ j });
+      var gridRow = $("<div>", { "class" : "gridbox", "id" : "box-" + i });
       gridCol.append ( gridRow );
     }
     mainGrid.append ( gridCol );
   }
   $( "#container" ).append( mainGrid );
+};
+
+PixelPainter.prototype.saveGrid = function(something) {
+  var gridState = [];
+  $(".gridbox").each(function(index,element){
+    gridState.push($(element).css("background-color"));
+  });
+  console.log(gridState);
 };
 
 // color generator using HSL
@@ -55,7 +63,8 @@ PixelPainter.prototype.renderColor = function(){
     colorGridblack.css( "background-color", "hsl(0,0%,0%)");
     var colorGridWhite = $("<div>", { "class" : "colorbox" });
     colorGridWhite.css( "background-color", "hsl(0,100%,100%)");
-    colorContainer.append( colorGridWhite, colorGridblack );
+    var saveButton = $("<button>", { "id" : "save_button", html : "Save" });
+    colorContainer.append( colorGridWhite, colorGridblack, saveButton );
 
   var erase = $( "<button>", { "id" : "eraser", html : "ERASER" });
   var clearbutton = $( "<button>", { "id" : "clear_all", html : "CLEAR GRID" });
@@ -72,4 +81,6 @@ PixelPainter.prototype.paint = function( gridBox, currentColor ) {
       console.log("Palette color not loaded to brush");
     }
 };
+
+
 // }); //closure

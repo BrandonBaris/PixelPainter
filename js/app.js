@@ -60,4 +60,12 @@ $(function(){
     }
   });
 
+// ------------------------------------------------------- FILE SERVER
+$("#save_button").click(function(){
+  pixels.saveGrid();
+});
+
+
+
 }); //closure
+
