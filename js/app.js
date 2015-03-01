@@ -8,6 +8,7 @@ $(function(){
 
   pixels.renderColor();
   pixels.render();
+  console.log(pixels.saturation);
 
   $( ".colorbox" ).click( function(){
     currentColor = $( this ).css( "background-color" );

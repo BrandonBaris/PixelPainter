@@ -4,7 +4,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 body {
   font-family: 'Comic Sans MS', sans-serif;
   font-size: 16px;
-  background: salmon;
+  background: hsl(123,10%,90%);
   /*background: hsl(123,100%,50%);*/
 }
 
