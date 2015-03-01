@@ -16,9 +16,9 @@ gulp.task('watch-files', function (){
   gulp.watch('./js/*.js', ['js']);
 });
 
-gulp.task('public-server', function (){
+gulp.task('connect', function() {
   connect.server({
-    root: '.',
+    root: './',
     livereload : true
   });
 });
@@ -32,4 +32,4 @@ gulp.task('watch', function() {
   gulp.watch('./**/*',['livereload']);
 });
 
-gulp.task('default', ['connect','watch']);
+gulp.task('default', ['connect','watch', 'livereload']);

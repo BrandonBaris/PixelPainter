@@ -14,6 +14,7 @@ PixelPainter.prototype.render = function() {
     var gridCol = $("<div>", { "class" : "grid_column" });
     for ( var j = 0; j < this.width; j++ ){
       var gridRow = $("<div>", { "class" : "gridbox", "id": i+"x"+j });
+
       gridCol.append ( gridRow );
     }
     mainGrid.append ( gridCol );
@@ -48,6 +49,7 @@ PixelPainter.prototype.generate = function(){
 PixelPainter.prototype.renderColor = function(){
 
   var colorContainer = $("<div>", { "class" : "color_container" });
+
   for ( var i = 0; i < this.hue.length; i++ ){
     for ( var k = 0; k < this.light.length; k++){
       for ( var j = 0; j < this.saturation.length; j++){
@@ -83,5 +85,4 @@ PixelPainter.prototype.paint = function( gridBox, currentColor ) {
       console.log("Palette color not loaded to brush");
     }
 };
-
 // }); //closure
