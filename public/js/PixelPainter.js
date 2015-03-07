@@ -13,7 +13,7 @@ PixelPainter.prototype.render = function() {
   for ( var i = 0; i < this.height; i++ ){
     var gridCol = $("<div>", { "class" : "grid_column" });
     for ( var j = 0; j < this.width; j++ ){
-      var gridRow = $("<div>", { "class" : "gridbox", "id": i+"x"+j });
+      var gridRow = $("<div>", { "class" : "gridbox", "id": i+"x"+j, "data-row": i, "data-col" : j });
 
       gridCol.append ( gridRow );
     }
