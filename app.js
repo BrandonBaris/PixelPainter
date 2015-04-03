@@ -1,16 +1,15 @@
-$(function(){
 
 //----------------------------------------------- APP LOGIC
   var currentColor = "rgb(0,0,0)"; //color to draw with
-  var pixels = new PixelPainter( 60,40 );
+  var pixels = new PixelPainter(30,30);
 
   pixels.generate();
 
   //generates swatches
   pixels.renderColor();
   //renders grid
+
   pixels.render();
-  // console.log(pixels.saturation);
 
   $( ".colorbox" ).click( function(){
     currentColor = $( this ).css( "background-color" );
@@ -63,6 +62,14 @@ $(function(){
   });
 
 // ------------------------------------------------------- FILE SERVER
+  // $("#save_button").click(function(){
+  //   pixels.saveGrid();
+  // });
+
+  // $("#load_button").click(function(){
+  //   pixels.loadGrid();
+  // });
+
 
 }); //closure
 

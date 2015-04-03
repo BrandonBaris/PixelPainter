@@ -1,0 +1,97 @@
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: 'Source Sans Pro', Verdana, Arial, sans-serif;
+  font-size: 20px;
+  background: #e7e7e7;
+  /*background: hsl(123,100%,50%);*/ 
+}
+
+aside {
+  position: absolute;
+  // display: inline-block;
+  z-index: 5;
+  top: 0px;
+  left: 0px;
+  padding: 50px;
+  width: 350px;
+  height: 100%;
+  background-color: #ccc;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 700;
+  letter-spacing: -0.053em;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+h4 {
+  font-size: 0.75em;
+  font-style: italic;
+}
+
+#container {
+  display: inline-block;
+  width: auto;
+  position: relative;
+  padding: 0px;
+  margin-left: 350px;
+
+}
+
+.button_row {
+  display: block;
+  padding: 15px 10px 15px 0px;
+}
+
+.big_grid {
+  display: block;
+  width: auto;
+  user-select: none; 
+}
+
+.color_container {
+  display: block;
+  width: 246px;
+  // padding: 20px 0;
+}
+
+.colorbox {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: thin solid #222;
+  border-radius: 1px;
+  margin: 3px; 
+}
+
+.gridbox {
+  display: table-cell;
+  background-color: #FFF;
+  width: 24px;
+  height: 24px;
+  // border: thin solid #eee;
+  // margin: 1em;
+  // user-select: none; 
+}
+
+.grid_column {
+  display: block;
+}
