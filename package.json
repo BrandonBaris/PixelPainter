@@ -8,29 +8,13 @@
   },
   "repository": {
     "type": "git",
-<<<<<<< HEAD
-    "url": "https://github.com/bradbaris/PixelPainter.git"
-=======
-<<<<<<< HEAD
-    "url": "https://github.com/bradbaris/PixelPainter.git"
-=======
     "url": "https://github.com/BrandonBaris/PixelPainter.git"
->>>>>>> branchdon_oop
->>>>>>> branchdon_oop
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-<<<<<<< HEAD
     "url": "https://github.com/bradbaris/PixelPainter/issues"
   },
-  "homepage": "https://github.com/bradbaris/PixelPainter"
-=======
-<<<<<<< HEAD
-    "url": "https://github.com/bradbaris/PixelPainter/issues"
-  },
-  "homepage": "https://github.com/bradbaris/PixelPainter"
-=======
     "url": "https://github.com/BrandonBaris/PixelPainter/issues"
   },
   "homepage": "https://github.com/BrandonBaris/PixelPainter",
@@ -43,6 +27,4 @@
     "express": "^4.12.0",
     "jade": "^1.9.2"
   }
->>>>>>> branchdon_oop
->>>>>>> branchdon_oop
 }

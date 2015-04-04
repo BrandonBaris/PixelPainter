@@ -1,8 +1,13 @@
-$(function(){
 
 //----------------------------------------------- APP LOGIC
-  var currentColor = "#000"; //color to draw with
-  var pixels = new PixelPainter( 40,30 );
+  var currentColor = "rgb(0,0,0)"; //color to draw with
+  var pixels = new PixelPainter(30,30);
+
+  pixels.generate();
+
+  //generates swatches
+  pixels.renderColor();
+  //renders grid
 
   pixels.render();
 
@@ -12,12 +17,12 @@ $(function(){
   });
 
   $( "#eraser" ).click( function(){
-    currentColor = "#fff";
+    currentColor = "rgb(255,255,255)";
     // console.log(currentColor);
   });
 
   $( "#clear_all" ).click( function(){
-    $( ".gridbox" ).css( "background-color", "#fff");
+    $( ".gridbox" ).css( "background-color", "rgb(255,255,255)");
   });
 
   // jquery code plugin for disabling text selection
@@ -57,6 +62,14 @@ $(function(){
   });
 
 // ------------------------------------------------------- FILE SERVER
+  // $("#save_button").click(function(){
+  //   pixels.saveGrid();
+  // });
+
+  // $("#load_button").click(function(){
+  //   pixels.loadGrid();
+  // });
+
 
 }); //closure
 
