@@ -19,20 +19,18 @@ body {
 
 aside {
   position: absolute;
-  z-index: 5;
-  top: 0px;
-  left: 0px;
+  display: inline-block;
   padding: 50px;
   width: 350px;
   height: 100%;
+  margin: 0px;
   background-color: #ccc; }
 
 h1 {
   font-size: 3em;
   font-weight: 700;
   letter-spacing: -0.053em;
-  margin-bottom: 5px;
-  position: relative; }
+  margin-bottom: 5px; }
 
 h4 {
   font-size: 0.75em;
@@ -40,23 +38,20 @@ h4 {
 
 #container {
   display: inline-block;
-  width: auto;
-  position: relative;
-  padding: 0px;
-  margin-left: 350px; }
+  position: absolute;
+  left: 500px;
+  margin: 50px; }
 
 .button_row {
   display: block;
-  padding: 15px 10px 15px 0px; }
+  padding: 15px 0px; }
 
 .big_grid {
-  display: block;
-  width: auto;
   user-select: none; }
 
 .color_container {
   display: block;
-  width: 246px; }
+  width: 224px; }
 
 .colorbox {
   display: inline-block;
@@ -65,6 +60,15 @@ h4 {
   border: thin solid #222;
   border-radius: 1px;
   margin: 3px; }
+
+#files {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #ddd;
+  width: 194px;
+  height: 200px;
+  overflow: scroll;
+  border: thin solid #e7e7e7; }
 
 .gridbox {
   display: table-cell;

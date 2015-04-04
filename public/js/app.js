@@ -1,16 +1,10 @@
 $(function(){
 
 //----------------------------------------------- APP LOGIC
-  var currentColor = "rgb(0,0,0)"; //color to draw with
-  var pixels = new PixelPainter( 60,40 );
+  var currentColor = "#000"; //color to draw with
+  var pixels = new PixelPainter( 40,30 );
 
-  pixels.generate();
-
-  //generates swatches
-  pixels.renderColor();
-  //renders grid
   pixels.render();
-  // console.log(pixels.saturation);
 
   $( ".colorbox" ).click( function(){
     currentColor = $( this ).css( "background-color" );
@@ -18,12 +12,12 @@ $(function(){
   });
 
   $( "#eraser" ).click( function(){
-    currentColor = "rgb(255,255,255)";
+    currentColor = "#fff";
     // console.log(currentColor);
   });
 
   $( "#clear_all" ).click( function(){
-    $( ".gridbox" ).css( "background-color", "rgb(255,255,255)");
+    $( ".gridbox" ).css( "background-color", "#fff");
   });
 
   // jquery code plugin for disabling text selection

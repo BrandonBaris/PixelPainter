@@ -37,6 +37,17 @@ app.get('/load', function (req, res) {
 
 });
 
+app.get('/loadPic', function (req, res) {
+
+  var id = req.query.id;
+  console.log('id',id);
+  Picture.findById ( id, function (err, data) {
+    if (err) throw err;
+    res.json(data);
+  });
+
+});
+
 app.post('/save', function (req, res) {
 
   var filename = req.body.filename;
