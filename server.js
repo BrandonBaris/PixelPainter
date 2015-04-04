@@ -4,7 +4,7 @@ var jade = require('jade');
 var bodyParser = require('body-parser');
 var uniqueValidator = require('mongoose-unique-validator');
 var mongoose = require('mongoose');
-    mongoose.connect(MONGOLAB_URI);
+    mongoose.connect('mongodb://localhost/test');
 var Schema = mongoose.Schema;
 var app = express();
 
