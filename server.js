@@ -2,6 +2,7 @@
 var express = require('express');
 var jade = require('jade');
 var bodyParser = require('body-parser');
+var uniqueValidator = require('mongoose-unique-validator');
 var mongoose = require('mongoose');
     mongoose.connect('mongodb://localhost/test');
 var Schema = mongoose.Schema;
@@ -9,7 +10,8 @@ var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var pictureSchema = new Schema({ filename: String, gridState: Array });
+var pictureSchema = new Schema({ filename: { type: String, unique: true}, gridState: { type: String } });
+    pictureSchema.plugin(uniqueValidator);
 var Picture = mongoose.model('Picture', pictureSchema);
 
 app.use(express.static(__dirname + '/public'));
@@ -60,8 +62,8 @@ app.post('/save', function (req, res) {
     }
   );
 
-  newPicture.save(function(err){
-    if (err) throw err;
+  newPicture.save( function (err) {
+    console.log(err);
     res.sendStatus(200);
   });
 

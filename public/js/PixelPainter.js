@@ -40,13 +40,12 @@ PixelPainter.prototype.loadPicture = function( pictureId) {
     type: "GET",
     data: { "id" : id },
     complete: function( data ){
-      var arrayColors = JSON.parse(data.responseText);
-      console.log('data.responseText',data.responseText[0].gridState);
-      for(i in arrayColors) {
-        // $( $('.gridBox')[i] ).css("background-color", arrayColors.gridState[i]);
-        // console.log('arrayColors.gridState[i]',arrayColors.gridState[i]);
-      }
-      // PixelPainter.prototype.render(arrayColors);
+      var arrayColors = JSON.parse(JSON.parse(data.responseText).gridState);
+      $(".gridbox").each(function( index, element ){
+        $(element).css("background-color", arrayColors[index]);
+      });
+      console.log("LOAD successful!");
+
     }
   });
 
@@ -57,13 +56,14 @@ PixelPainter.prototype.saveGrid = function( event) {
 
   var filename  = prompt("Save drawing as... ", "New Drawing");
 
-  var gridState = [];
+  var gridState = {};
   $(".gridbox").each(function( index, element ){
-    gridState.push( $(element).css("background-color"));
+    gridState[index] = $(element).css("background-color");
   });
 
-  gridState = JSON.stringify(gridState);
 
+  gridState = JSON.stringify(gridState);
+  // console.log('gridState',gridState);
   $.ajax({
     url: "/save",
     type: "POST",
@@ -73,6 +73,8 @@ PixelPainter.prototype.saveGrid = function( event) {
     },
     complete: function( data ){
       PixelPainter.prototype.loadSaves();
+      console.log("SAVE successful!");
+
     }
   });
 
