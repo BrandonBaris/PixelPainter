@@ -68,6 +68,7 @@ h4 {
   width: 194px;
   height: 200px;
   overflow: scroll;
+  text-overflow: ellipsis;
   border: thin solid #e7e7e7; }
 
 .gridbox {
@@ -78,3 +79,16 @@ h4 {
 
 .grid_column {
   display: block; }
+
+.filerow {
+  display: inline-block;
+  max-width: 200px;
+  width: 175px;
+  max-width: 175px;
+  color: #37c;
+  margin-bottom: 10px; }
+
+.delete {
+  display: inline-block;
+  float: right;
+  color: #f00; }

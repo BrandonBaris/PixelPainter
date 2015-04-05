@@ -42,7 +42,6 @@ app.get('/load', function (req, res) {
 app.get('/loadPic', function (req, res) {
 
   var id = req.query.id;
-  console.log('id',id);
   Picture.findById ( id, function (err, data) {
     if (err) throw err;
     res.json(data);
@@ -64,6 +63,17 @@ app.post('/save', function (req, res) {
 
   newPicture.save( function (err) {
     console.log(err);
+    res.sendStatus(200);
+  });
+
+});
+
+app.delete('/deletePic', function (req, res) {
+
+  var id = req.query.id;
+ 
+  Picture.findOneAndRemove ( id, function (err, data) {
+    if (err) throw err;
     res.sendStatus(200);
   });
 

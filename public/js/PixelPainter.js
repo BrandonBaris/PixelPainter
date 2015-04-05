@@ -10,7 +10,6 @@ function PixelPainter( width, height ){
 
 PixelPainter.prototype.render = function( array) {
 
-
   var mainGrid = $("<div>", { "class" : "big_grid"});
   for ( var i = 0; i < this.height; i++ ){
     var gridCol = $("<div>", { "class" : "grid_column" });
@@ -63,7 +62,7 @@ PixelPainter.prototype.saveGrid = function( event) {
 
 
   gridState = JSON.stringify(gridState);
-  // console.log('gridState',gridState);
+
   $.ajax({
     url: "/save",
     type: "POST",
@@ -79,6 +78,23 @@ PixelPainter.prototype.saveGrid = function( event) {
   });
 
 };
+
+PixelPainter.prototype.deletePicture = function( pictureId) {
+  var id = $(this).attr('pictureId');
+
+  $.ajax({
+    url: "/deletePic",
+    type: "DELETE",
+    data: { "id" : id },
+    complete: function( data ){
+      PixelPainter.prototype.loadSaves();
+      console.log("DELETE successful!");
+
+    }
+  });
+
+};
+
 
 // color generator using HSL
 PixelPainter.prototype.generate = function(){
@@ -140,10 +156,15 @@ PixelPainter.prototype.loadSaves = function() {
     type: "GET",
     complete: function( data ){
       for( var i = 0; i < data.responseJSON.length; i++) {
-        var filerow = $("<div>").html("<p>"+data.responseJSON[i].filename+"</p>").attr({"pictureId": data.responseJSON[i]._id });
+        var filerow = $("<div>").html(data.responseJSON[i].filename).attr({"pictureId": data.responseJSON[i]._id }).addClass('filerow');
         filerow.click( _pixelpainter.loadPicture );
-        // console.log('data.responseJSON',data.responseJSON);
+        
+        var filedelete = $("<div>").html("&times;").attr({"pictureId": data.responseJSON[i]._id });
+        filedelete.addClass("delete");
+        filedelete.click( _pixelpainter.deletePicture );
+
         $("#files").append(filerow);
+        $("#files").append(filedelete);
       }
 
     }
